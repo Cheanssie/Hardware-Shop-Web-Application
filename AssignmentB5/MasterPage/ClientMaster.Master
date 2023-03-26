@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ClientMaster.Master.cs" Inherits="AssignmentB5.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <style>
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+            a:hover, a:focus {
+                text-decoration: none;
+            }
+
+        .form-control {
+            background: #212529;
+            border-color: #545454;
+        }
+
+            .form-control:focus {
+                background: #212529;
+                color: white;
+            }
+
+        footer {
+            background: #212529;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" aria-label="Ninth navbar example">
+        <div class="container-xl">
+            <a class="navbar-brand" href="../ClientPage/Home.aspx"><b>HardCORE</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample07XL">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown07XL">
+                            <li><a class="dropdown-item" href="../ClientPage/Products.aspx">All Products</a></li>
+                            <li><a class="dropdown-item" href="#">Laptops</a></li>
+                            <li><a class="dropdown-item" href="#">Desktop</a></li>
+                            <li><a class="dropdown-item" href="#">Computer Parts</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Vouchers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Tracking</a>
+                    </li>
+                </ul>
+                <form>
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <form id="form1" runat="server">
+        <div style="min-height: 600px;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+    <footer class="w-100 py-4 flex-shrink-0">
+        <div class="container py-4">
+            <div class="row gy-4 gx-5">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-white">HardCore Online Store</h4>
+                    <p class="small text-muted">
+                        Welcome to our online computer hardware store, where you'll find a wide variety of high-quality computer components and peripherals. 
+                        <br />
+                        Shop with us today and elevate your computing experience!
+                    </p>
+                    <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-3">Our Products</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="#">All Products</a></li>
+                        <li><a href="#">Laptops</a></li>
+                        <li><a href="#">Desktops</a></li>
+                        <li><a href="#">Computer Parts</a></li>
+                    </ul>
+                </div>
+               
+                <div class="col-lg-6 col-md-6 text-right">
+                    <h5 class="text-white mb-3">Write Message to us</h5>
+                    <p class="small text-muted">Drop your email here, our staff will approach you as soon as possible.</p>
+                    <form action="#">
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" placeholder="Email Adress" aria-label="Email" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" id="button-addon2" type="button"><i class="bi bi-send-fill"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Script files-->
+        <script src="../Scripts/bootstrap.bundle.min.js" type="text/javascript"></script>
+    </footer>
+</body>
+</html>
