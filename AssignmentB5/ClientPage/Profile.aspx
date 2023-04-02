@@ -6,6 +6,14 @@
             display: none;
         }
 
+        .custom-file-label::after {
+            content: "Choose file";
+        }
+
+        .custom-file input[type="file"] {
+            height: auto;
+        }
+
         .form-control {
             background: white;
         }
@@ -26,10 +34,13 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="card-body text-center">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                                    class="rounded-circle img-fluid" style="width: 150px;">
+                                <img src="../img/ProfileImg/default.jpg" alt="avatar"
+                                    class="rounded-circle img-fluid" style="width: 130px; object-fit: cover">
                                 <h5 class="my-3">John Smith</h5>
                                 <button id="btnEditProf" class="btn btn-primary" type="button">Edit Profile</button>
+                                <div class="d-flex justify-content-center">
+                                    <asp:FileUpload ID="fuImage" CssClass="display-i custom-file" runat="server" />
+                                </div>
                             </div>
                         </div>
                         <div class="col-8">
@@ -73,10 +84,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="row d-flex mt-5 justify-content-center">
-                                        <button id="btnCancel" class="btn btn-primary w-25 mx-2 btn-hide" type="button">Cancel</button>
-                                        <button id="btnSave" class="btn btn-primary w-25 mx-2 btn-hide" type="button">Save</button>
-
+                                    <div id="btn-hide" class="row mt-5 justify-content-center d-none">
+                                        <button id="btnCancel" class="btn btn-primary w-25 mx-2" type="button">Cancel</button>
+                                        <asp:Button ID="btnSave" CssClass="btn btn-primary w-25 mx-2" runat="server" Text="Save" />
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +123,7 @@
     <script type="text/javascript">
         var btnEditProf = document.getElementById('btnEditProf');
         var btnCancel = document.getElementById('btnCancel');
-        var btnSave = document.getElementById('btnSave');
+        var btns = document.getElementById('btn-hide');
         var allTextOnly = document.getElementsByClassName('display-t');
         var allInput = document.getElementsByClassName('display-i');
         var editing = false;
@@ -129,8 +139,8 @@
 
 
             btnEditProf.style.display = "none";
-            btnCancel.style.display = "inline-block";
-            btnSave.style.display = "inline-block";
+            btns.classList.remove('d-none');
+            btns.classList.add('d-flex');
             editing = !editing;
         });
 
@@ -146,8 +156,8 @@
             });
 
             btnEditProf.style.display = "inline-block";
-            btnCancel.style.display = "none";
-            btnSave.style.display = "none";
+            btns.classList.remove('d-flex');
+            btns.classList.add('d-none');
             editing = !editing;
         });
 

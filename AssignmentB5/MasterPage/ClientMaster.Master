@@ -19,6 +19,14 @@
                 text-decoration: none;
             }
 
+        .navbar-brand{
+            color:rgba(255,255,255,.55)!important;
+        }
+
+        .navbar-brand:hover{
+            color:white!important;
+        }
+
         .form-control {
             background: #212529;
             border-color: #545454;
@@ -40,26 +48,26 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" aria-label="Ninth navbar example">
         <div class="container-xl">
             <a class="navbar-brand" href="../ClientPage/Home.aspx"><b>HardCORE</b></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#clientNav" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarsExample07XL">
+            <div class="collapse navbar-collapse" id="clientNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown07XL">
-                            <li><a class="dropdown-item" href="../ClientPage/Products.aspx">All Products</a></li>
-                            <li><a class="dropdown-item" href="#">Desktop</a></li>
-                            <li><a class="dropdown-item" href="#">Laptops</a></li>
-                            <li><a class="dropdown-item" href="#">Computer Parts</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">All Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Vouchers</a>
+                        <a class="nav-link" href="#">Desktops</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Tracking</a>
+                        <a class="nav-link" href="#">Laptops</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Computer Parts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Coming soon</a>
                     </li>
                 </ul>
                 <form>

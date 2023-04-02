@@ -13,15 +13,5 @@ namespace AssignmentB5.WebForm
         {
 
         }
-        
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Panel1.Visible = false;
-        }
-
-        protected void LinkButton2_Click(object sender, EventArgs e)
-        {
-            Panel1.Visible = true;
-        }
     }
 }

@@ -72,6 +72,11 @@
             .container-pc {
                 display: none;
             }
+
+            .category-custom{
+                height:200px !important;
+                margin-bottom:15px;
+            }
         }
 
         .card-price {
@@ -91,9 +96,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 </asp:Content>
 
@@ -170,26 +172,28 @@
 
         <div class="row text-white d-flex justify-content-between">
             <div class="col-md-3 d-flex flex-column" style="min-height: 400px; gap: 5%;">
-                <a href="Products.aspx" class="row bg-light text-center d-flex flex-column justify-content-center d-block category-hover" style="height: 67.5%; background-image: url('../img/pc.jpg'); background-position: center; background-size: cover;">
+                <a href="Products.aspx" class="row bg-light text-center d-flex flex-column justify-content-center d-block category-hover category-custom" style="height: 67.5%; background-image: url('../img/pc.jpg'); background-position: center; background-size: cover;">
                     <p>Laptops</p>
                 </a>
-                <a href="Products.aspx" class="row bg-success text-center d-flex flex-column justify-content-center d-block category-hover" style="height: 27.5%; background-image: url('../img/desktop.jpg'); background-position: center; background-size: cover;">
+                <a href="Products.aspx" class="row bg-success text-center d-flex flex-column justify-content-center d-block category-hover category-custom" style="height: 27.5%; background-image: url('../img/desktop.jpg'); background-position: center; background-size: cover;">
                     <p>Desktop</p>
                 </a>
 
             </div>
             <div class="col-auto"></div>
-            <a href="Products.aspx" class="col-md-3 text-center d-flex flex-column justify-content-center d-block category-hover" style="background-image: url('../img/computer-part.jpg'); background-position: center; background-size: cover;">
+            <a href="Products.aspx" class="col-md-3 text-center d-flex flex-column justify-content-center d-block category-hover category-custom" style="background-image: url('../img/computer-part.jpg'); background-position: center; background-size: cover;">
                 <p>Computer Parts</p>
             </a>
             <div class="col-auto"></div>
-            <a href="Products.aspx" class="col-md-5 bg-success text-center d-flex flex-column justify-content-center d-block category-hover" style="background-image: url('../img/all-product.jpg'); background-position: center; background-size: cover;">
+            <a href="Products.aspx" class="col-md-5 bg-success text-center d-flex flex-column justify-content-center d-block category-hover category-custom" style="background-image: url('../img/all-product.jpg'); background-position: center; background-size: cover;">
                 <p>All Products</p>
             </a>
         </div>
     </div>
     <br />
     <br />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function () {
             $('.owl-carousel').owlCarousel({

@@ -12,7 +12,6 @@
             border: 1px solid #0d6efd;
             color: #0d6efd;
             border-radius: 5px;
-            font-size: 12px;
             margin-bottom: 5px;
         }
 
@@ -63,10 +62,15 @@
                     <p class="text-wrap">
                         <span id="prodDesc" runat="server"></span>
                     </p>
-                    <p class="card-text p-category" id="prodCategory" runat="server"></p>
-                    <p class=""><b>Price: </b><span id="prodPrice" runat="server"></span></p>
-                    <label for="quantity"><b>Quantity: </b></label>
-                    <asp:TextBox ID="quantity" runat="server" Type="Number" min="1" value="1"></asp:TextBox>
+                    <p class="card-text p-category mt-5 mb-3" id="prodCategory" runat="server"></p>
+                    <div class="d-flex flex-row justify-content-between col-12" style="width: 35%;">
+                        <p>Price</p>
+                        <span id="prodPrice" runat="server"></span>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between col-12" style="width: 35%;">
+                        <label for="quantity">Quantity</label>
+                        <asp:TextBox ID="quantity" runat="server" Type="Number" min="1" value="1"></asp:TextBox>
+                    </div>
                     <br />
                     <br />
                     <br />

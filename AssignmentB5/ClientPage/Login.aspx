@@ -51,7 +51,7 @@
                         <asp:CheckBox ID="cbRememberMe"  runat="server" />
                         <label class="form-check-label"">Remember me</label>
                     </div>
-                    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Forgot password?</asp:LinkButton>
+                    <button id="btnForget" class="btn" type="button">Forgot password?</button>
                 </div>
 
                 <div class="text-center text-lg-start mt-4 pt-2">
@@ -65,10 +65,10 @@
         </div>
     </div>
 
-    <asp:Panel ID="Panel1" runat="server" CssClass="position-absolute" Visible="false" Style="top: 50%; left: 50%; transform: translate(-50%,-50%); width: 400px; background-color: #fff; border: 1px solid #ccc; padding: 20px;">
-        <asp:LinkButton class="border-0 bg-white float-end" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">       
+    <div id="forgetPanel" class="position-absolute shadow" Style="display:none; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 400px; background-color: #fff; border: 1px solid #ccc; padding: 20px;">
+        <button class="border-0 bg-white float-end" id="btnClose" type="button">       
             <span class="bi bi-x"></span>
-        </asp:LinkButton>
+        </button>
         <p class="fs-2"><b>Forget Password</b></p>
         <p>Enter your email to reset password.</p>
         <!-- Email input -->
@@ -78,5 +78,19 @@
                 placeholder="Enter a valid email address" TextMode="Email" runat="server"></asp:TextBox>
         </div>
         <asp:Button ID="btnConfirmReset" CssClass="btn btn-primary btn-lg w-100" runat="server" Text="Confirm" style="padding-left: 2.5rem; padding-right: 2.5rem;"/>
-    </asp:Panel>
+    </div>
+    <script type="text/javascript">
+        var btnForget = document.getElementById('btnForget');
+        var btnClose = document.getElementById('btnClose');
+        var forgetPanel = document.getElementById('forgetPanel');
+
+        btnForget.addEventListener('click', function () {
+            forgetPanel.style.display = "block";
+        });
+
+        btnClose.addEventListener('click', function () {
+            forgetPanel.style.display = "none";
+        });
+
+    </script>
 </asp:Content>
