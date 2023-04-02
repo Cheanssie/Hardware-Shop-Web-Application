@@ -36,32 +36,28 @@
                 <!-- Username input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">Username<span class="text-danger">*</span></label>
-                    <input type="text" id="form3Example3" class="form-control form-control-lg"
-                        placeholder="Enter username" />
+                    <asp:TextBox ID="txtUsername" CssClass="form-control form-control-lg" placeholder="Enter username" runat="server"></asp:TextBox>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-3">
                     <label class="form-label" for="form3Example4">Password<span class="text-danger">*</span></label>
-                    <input type="password" id="form3Example4" class="form-control form-control-lg"
-                        placeholder="Enter password" />
+                    <asp:TextBox ID="txtPassword" CssClass="form-control form-control-lg" placeholder="Enter password" TextMode="Password" runat="server"></asp:TextBox>
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center">
                     <!-- Checkbox -->
-                    <div class="form-check mb-0">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                        <label class="form-check-label" for="form2Example3">
-                            Remember me
-                        </label>
+                    <div class="form-check mb-0 ps-0">
+                        <asp:CheckBox ID="cbRememberMe"  runat="server" />
+                        <label class="form-check-label"">Remember me</label>
                     </div>
                     <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Forgot password?</asp:LinkButton>
                 </div>
 
                 <div class="text-center text-lg-start mt-4 pt-2">
-                    <button type="button" class="btn btn-primary btn-lg w-100" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                    <asp:Button ID="btnLogin" CssClass="btn btn-primary btn-lg w-100" runat="server" Text="Login" style="padding-left: 2.5rem; padding-right: 2.5rem;"/>
                     <p class="small fw-bold mt-2 pt-1 mb-0">
-                        Don't have an account? <a href="../WebForm/Register.aspx" class="link-danger">Register</a>
+                        Don't have an account? <a href="Register.aspx" class="link-danger">Register</a>
                     </p>
                 </div>
 
@@ -69,7 +65,7 @@
         </div>
     </div>
 
-    <asp:Panel ID="Panel1" runat="server" CssClass="position-absolute" Visible="false" Style="display: ; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 400px; background-color: #fff; border: 1px solid #ccc; padding: 20px;">
+    <asp:Panel ID="Panel1" runat="server" CssClass="position-absolute" Visible="false" Style="top: 50%; left: 50%; transform: translate(-50%,-50%); width: 400px; background-color: #fff; border: 1px solid #ccc; padding: 20px;">
         <asp:LinkButton class="border-0 bg-white float-end" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">       
             <span class="bi bi-x"></span>
         </asp:LinkButton>
@@ -78,9 +74,9 @@
         <!-- Email input -->
         <div class="form-outline mb-4 float-none">
             <label class="form-label" for="form3Example3">Email address<span class="text-danger">*</span></label>
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Enter a valid email address" />
+            <asp:TextBox ID="txtEmail" CssClass="form-control form-control-lg"
+                placeholder="Enter a valid email address" TextMode="Email" runat="server"></asp:TextBox>
         </div>
-        <button type="button" class="btn btn-primary btn-lg w-100" style="padding-left: 2.5rem; padding-right: 2.5rem;">Confirm</button>
+        <asp:Button ID="btnConfirmReset" CssClass="btn btn-primary btn-lg w-100" runat="server" Text="Confirm" style="padding-left: 2.5rem; padding-right: 2.5rem;"/>
     </asp:Panel>
 </asp:Content>

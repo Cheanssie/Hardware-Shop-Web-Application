@@ -27,8 +27,41 @@
             transition: transform 0.2s ease-in-out;
         }
 
-        .category-hover:hover {
-            transform: scale(1.05);
+            .category-hover:hover {
+                transform: scale(1.05);
+            }
+
+        .card-price {
+            color: grey;
+        }
+
+        .p-category {
+            max-width: max-content;
+            padding: 2px 5px;
+            border: 1px solid #0d6efd;
+            color: #0d6efd;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .card-parent:hover > .card {
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.16), 0 4px 10px rgba(13, 110, 253, 0.23);
+            opacity: 0.5;
+        }
+
+        .view-details {
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            visibility: hidden;
+        }
+
+        .card-parent:hover > .view-details {
+            visibility: visible;
+            opacity: 1 !important;
         }
 
         @media (max-width: 700px) {
@@ -40,7 +73,28 @@
                 display: none;
             }
         }
-        </style>
+
+        .card-price {
+            color: grey;
+        }
+
+        .p-category {
+            max-width: max-content;
+            padding: 2px 5px;
+            border: 1px solid #0d6efd;
+            color: #0d6efd;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -80,154 +134,30 @@
             <div id="productCarousel" class="carousel slide" data-bs-pause="true">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="row d-flex justify-content-between">
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100" style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
+                        <div class="row justify-content-center owl-carousel owl-theme">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT * FROM [Product]"></asp:SqlDataSource>
+                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" Visible="True" OnItemCommand="Repeater1_ItemCommand">
+                                <ItemTemplate>
+                                    <div class="card-parent col mx-auto mx-sm-auto" style="position: relative">
+                                        <div class="card h-100 mx-auto mx-sm-auto" style="max-width: 18rem; max-height: 300px; min-height: 300px">
+                                            <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><%# Eval("prodName") %></h5>
+                                                <p class="card-text p-category"><%# Eval("prodCategory") %></p>
+                                                <p class="card-text card-price position-relative">
+                                                    <%# Eval("prodPrice") %><span class="card-text float-end position-absolute bottom-0 end-0" style="font-size: 12px;"><%# Eval("prodQuantity") %>qty</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="view-details buttons d-flex">
+                                            <asp:LinkButton ID="lbViewDetails" CssClass="btn btn-primary btn-sm d-flex justify-content-center align-content-center" runat="server" CommandName="detail" CommandArgument='<%# Eval("prodId") %>'>View Details</asp:LinkButton>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100" style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100" style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100 " style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100 " style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row justify-content-center"> 
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100" style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100" style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100 " style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100 " style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100 " style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid container-mb">
-        <div class="container-xl mt-3">
-            <p class="text-left fs-2">Latest Products</p>
-        </div>
-        <div class="container-xl container-mb">
-            <div id="productCarousel-mb" class="carousel slide">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row d-flex justify-content-between">
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100 " style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row d-flex justify-content-between">
-                            <div class="col d-flex justify-content-center align-content-center">
-                                <div class="card h-100 " style="max-width: 18rem;">
-                                    <img src="../img/login-bg.jpg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title8</h5>
-                                        <p class="card-text">This is a short card.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel-mb" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel-mb" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
             </div>
         </div>
     </div>
@@ -243,13 +173,13 @@
                 <a href="Products.aspx" class="row bg-light text-center d-flex flex-column justify-content-center d-block category-hover" style="height: 67.5%; background-image: url('../img/pc.jpg'); background-position: center; background-size: cover;">
                     <p>Laptops</p>
                 </a>
-                <a  href="Products.aspx" class="row bg-success text-center d-flex flex-column justify-content-center d-block category-hover" style="height: 27.5%; background-image: url('../img/desktop.jpg'); background-position: center; background-size: cover;">
+                <a href="Products.aspx" class="row bg-success text-center d-flex flex-column justify-content-center d-block category-hover" style="height: 27.5%; background-image: url('../img/desktop.jpg'); background-position: center; background-size: cover;">
                     <p>Desktop</p>
                 </a>
 
             </div>
             <div class="col-auto"></div>
-            <a  href="Products.aspx" class="col-md-3 text-center d-flex flex-column justify-content-center d-block category-hover" style="background-image: url('../img/computer-part.jpg'); background-position: center; background-size: cover;">
+            <a href="Products.aspx" class="col-md-3 text-center d-flex flex-column justify-content-center d-block category-hover" style="background-image: url('../img/computer-part.jpg'); background-position: center; background-size: cover;">
                 <p>Computer Parts</p>
             </a>
             <div class="col-auto"></div>
@@ -260,5 +190,25 @@
     </div>
     <br />
     <br />
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            });
+        });
+    </script>
 
 </asp:Content>

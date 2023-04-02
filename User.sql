@@ -1,0 +1,2 @@
+﻿INSERT INTO Users VALUES('ckl0517', 'Kae Lun', 'lamontchean0517@gmail.com', '0013123abc', '0183715153', 'No17 Jalan9/18A Taman Mastiara, Jalan Ipoh Batu Lima', 'normal');
+INSERT INTO Users VALUES('jess0119', 'Jessie', 'liwejss@gmail.com', '020119abc', '0109025428', 'Lot25696 Jalan Melati 20, Taman Seri Melati', 'normal');

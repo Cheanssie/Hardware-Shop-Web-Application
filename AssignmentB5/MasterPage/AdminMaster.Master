@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.Master.cs" Inherits="AssignmentB5.AdminPage.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <style>
+        .btn-shrink {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+        }
+
+        .sidebar {
+            transition: width 0.2s ease-in-out;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="vh-100">
+    <div class="d-flex flex-row vh-100">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar" style="width: 280px; height: 100%;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <span class="sidebar-title fs-4">HardCORE</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li>
+                    <a href="../AdminPage/Dashboard.aspx" class="nav-link text-white">
+                        <i class="bi bi-speedometer2" width="16" height="16"></i>
+                        <span class="sidebar-hide">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../AdminPage/Manage-product.aspx" class="nav-link text-white">
+                        <i class="bi bi-grid" width="16" height="16"></i>
+                        <span class="sidebar-hide">Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../AdminPage/Manage-employee.aspx" class="nav-link text-white">
+                        <i class="bi bi-people-fill" width="16" height="16"></i>
+                        <span class="sidebar-hide">Employees</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../AdminPage/Manage-customer.aspx" class="nav-link text-white">
+                        <i class="bi bi-people-fill" width="16" height="16"></i>
+                        <span class="sidebar-hide">Customers</span>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="dropdown d-flex justify-content-between">
+                <div class="dropdownUser">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <strong>mdo</strong>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+
+                <button class="btn-shrink bi bi-arrow-left""></button>
+            </div>
+
+        </div>
+        <div class="vw-100">
+            <form id="form1" runat="server">
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+
+    <footer>
+        <!--Script files-->
+        <script src="../Scripts/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var sidebar = document.getElementsByClassName('sidebar');
+            var toggleBtn = document.getElementsByClassName('btn-shrink');
+            var hideText = document.getElementsByClassName('sidebar-hide');
+            var arrowIcon = document.getElementsByClassName('btn-shrink');
+            var dropdownUser = document.getElementsByClassName('dropdownUser');
+            var title = document.getElementsByClassName('sidebar-title');
+
+            toggleBtn[0].addEventListener('click', function () {
+                if (sidebar[0].style.width === '280px') {
+                    sidebar[0].style.width = '4.5rem';
+
+
+                    arrowIcon[0].classList.remove('bi-arrow-left');
+                    arrowIcon[0].classList.add('bi-arrow-right');
+                    dropdownUser[0].style.display = "none";
+                    title[0].style.display = "none";
+                    Array.from(hideText).forEach(
+                        (element, index, array) => {
+                            element.style.display = "none";
+                        }
+                    )
+
+                } else {
+                    sidebar[0].style.width = '280px';
+
+                    arrowIcon[0].classList.remove('bi-arrow-right');
+                    arrowIcon[0].classList.add('bi-arrow-left');
+                    dropdownUser[0].style.display = "block";
+                    title[0].style.display = "flex";
+                    setTimeout(() => {
+                        Array.from(hideText).forEach(
+                            (element, index, array) => {
+                                element.style.display = "inline";
+                            }
+                        )
+                    }, 100);
+
+
+                }
+            });
+        </script>
+    </footer>
+</body>
+</html>

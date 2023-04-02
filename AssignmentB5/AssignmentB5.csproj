@@ -67,7 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPage\Dashboard.aspx" />
+    <Content Include="AdminPage\Manage-customer.aspx" />
+    <Content Include="AdminPage\Manage-employee.aspx" />
+    <Content Include="AdminPage\Manage-product.aspx" />
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
+    <Content Include="ClientPage\Cart.aspx" />
+    <Content Include="ClientPage\Checkout.aspx" />
+    <Content Include="ClientPage\OrderHistory-Details.aspx" />
     <Content Include="ClientPage\Product-Details.aspx" />
+    <Content Include="ClientPage\Profile.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -2054,6 +2066,69 @@
     <Content Include="ClientPage\Register.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPage\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPage\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPage\Manage-customer.aspx.cs">
+      <DependentUpon>Manage-customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPage\Manage-customer.aspx.designer.cs">
+      <DependentUpon>Manage-customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPage\Manage-employee.aspx.cs">
+      <DependentUpon>Manage-employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPage\Manage-employee.aspx.designer.cs">
+      <DependentUpon>Manage-employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPage\Manage-product.aspx.cs">
+      <DependentUpon>Manage-product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPage\Manage-product.aspx.designer.cs">
+      <DependentUpon>Manage-product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientPage\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientPage\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientPage\OrderHistory-Details.aspx.cs">
+      <DependentUpon>OrderHistory-Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientPage\OrderHistory-Details.aspx.designer.cs">
+      <DependentUpon>OrderHistory-Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientPage\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientPage\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ClientPage\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientPage\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClientPage\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2119,6 +2194,7 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="MasterPage\AdminMaster.Master" />
     <None Include="packages.config" />
     <Content Include="MasterPage\ClientMaster.Master" />
     <Content Include="Scripts\bootstrap.min.js.map" />
@@ -2134,6 +2210,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -11,7 +11,15 @@ namespace AssignmentB5.WebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+          
+        }
 
+        protected void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            if(e.CommandName == "detail")
+            {
+                Response.Redirect(HttpContext.Current.Request.ApplicationPath + "ClientPage/Product-Details.aspx?prodId="+e.CommandArgument.ToString());
+            }
         }
     }
 }

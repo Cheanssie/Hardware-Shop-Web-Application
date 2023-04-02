@@ -1,0 +1,1 @@
+﻿INSERT INTO Payment VALUES('PY00000001', '12/05/2023', 500, 'Cash', null);

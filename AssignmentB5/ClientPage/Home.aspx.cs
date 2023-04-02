@@ -13,5 +13,13 @@ namespace AssignmentB5
         {
 
         }
+
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "detail")
+            {
+                Response.Redirect(HttpContext.Current.Request.ApplicationPath + "ClientPage/Product-Details.aspx?prodId=" + e.CommandArgument.ToString());
+            }
+        }
     }
 }
