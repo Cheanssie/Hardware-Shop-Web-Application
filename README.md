@@ -1,7 +1,7 @@
 # Hardware-Online-Shop-Website
 The HardCORE online store, developed using the ASP.NET framework, offers an extensive array of products suitable for personal, business, and gaming purposes.
 
-![image](https://github.com/LamontChean/Hardware-Online-Shop-Website2/assets/101232039/278d869a-623d-46c8-bb0a-9714fac992b1)
+![image](https://github.com/LamontChean/Hardware-Online-Shop-Website/assets/101232039/4567e691-dd9d-483a-a7a8-e9a269c2ae0f)
 
 
 Key Features:
